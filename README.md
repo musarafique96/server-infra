@@ -22,7 +22,7 @@ Its database stays on the app's own private network, so it is never reachable fr
 
 ## Status
 
-Not in use yet. Gharbaar still runs its own Caddy from `server/deploy` in the household-app repo. This repo is switched on when the BPA API is ready to deploy.
+In use on `hearth`. This Caddy serves both `gharbaar.duckdns.org` (Gharbaar API) and `bpaplatform.duckdns.org` (BPA API). Gharbaar's compose file no longer contains a Caddy.
 
 ## Branches
 
