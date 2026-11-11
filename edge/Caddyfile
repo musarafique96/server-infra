@@ -1,0 +1,8 @@
+gharbaar.duckdns.org {
+    reverse_proxy gharbaar-api:8080
+}
+
+# Added when the BPA API is ready to deploy:
+# bpa.duckdns.org {
+#     reverse_proxy bpa-api:8080
+# }
