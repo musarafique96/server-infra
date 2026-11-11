@@ -27,3 +27,14 @@ Not in use yet. Gharbaar still runs its own Caddy from `server/deploy` in the ho
 ## Branches
 
 Work goes to `develop`. `main` holds merged work.
+
+## Migration runner
+
+`migrate/migrate.sh` applies database changes for any app on the server.
+
+- Each app keeps its SQL files in its own repo (for example `server/db/migrations`).
+- The runner applies each file once, in name order, inside a transaction together with its record in `schema_migrations`.
+- A failed file stops the run and leaves nothing recorded.
+- Existing databases created before the runner: set `BASELINE_FILE` to the first file, so it is marked as applied and not run again.
+
+It is run as a one-shot container before the app's API starts. The app's compose file mounts its migrations folder at `/migrations` and this folder at `/infra`. The `migrate` service in the app compose file is added when that app's first new migration is ready.
