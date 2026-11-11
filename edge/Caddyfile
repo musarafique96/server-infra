@@ -2,6 +2,6 @@ gharbaar.duckdns.org {
     reverse_proxy gharbaar-api:8080
 }
 
-bpa.duckdns.org {
+bpaplatform.duckdns.org {
     reverse_proxy bpa-api:8080
 }
