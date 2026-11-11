@@ -10,11 +10,16 @@ services:
       - caddy_data:/data
       - caddy_config:/config
     networks:
-      - edge
+      edge:
+        # Fixed address. The BPA and Gharbaar APIs trust this address for forwarded client IPs.
+        ipv4_address: 172.30.0.2
 
 networks:
   edge:
     name: edge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24
 
 volumes:
   caddy_data:
